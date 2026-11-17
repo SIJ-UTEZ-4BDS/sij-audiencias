@@ -42,20 +42,56 @@ small, .text-thin {
 }
 
 .sidebar-brand-banner {
-    background-color: #3B4B37;
+    background-color: var(--verde-tierra);
     color: var(--blanco-puro);
-    padding: 1.25rem 1rem;
+    padding: 1rem 0.9rem 0.75rem;
     text-align: center;
-    border-bottom: 3px solid var(--dorado);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
 }
 
-.sidebar-brand-banner h5,
+.sidebar-brand-banner .sidebar-logo {
+    display: block;
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    margin: 0 auto 0.85rem;
+    padding: 0.35rem;
+    border-radius: 0.35rem;
+    background-color: var(--blanco-puro);
+}
+
+.sidebar-brand-banner h5 {
+    color: var(--crema-claro);
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+}
+
 .sidebar-brand-banner small {
-    color: var(--blanco-puro);
+    color: var(--crema-claro);
+    opacity: 0.85;
 }
 
-.sidebar-brand-banner i {
+.sidebar-navigation {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    margin-top: 0 !important;
+    padding: 0.85rem 0 1rem;
+}
+
+.sidebar-section-label {
+    margin: 0.35rem 1rem 0.65rem;
     color: var(--dorado);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+}
+
+.sidebar-nav-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1 0 auto;
 }
 
 .sidebar-judicial .nav-link {
@@ -92,6 +128,100 @@ small, .text-thin {
 .sidebar-judicial .nav-link:hover span,
 .sidebar-judicial .nav-link:focus-visible span,
 .sidebar-judicial .nav-link.active span {
+    color: var(--dorado);
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 0.85rem 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.sidebar-coverage-title {
+    margin: 0 0 0.15rem;
+    color: var(--dorado);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.sidebar-coverage-description {
+    margin: 0 0 0.8rem;
+    color: var(--crema-claro);
+    font-size: 0.72rem;
+    line-height: 1.25;
+    opacity: 0.82;
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    margin-bottom: 0.8rem;
+}
+
+.sidebar-user-avatar {
+    width: 2.2rem;
+    height: 2.2rem;
+    display: inline-flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--dorado);
+    border-radius: 50%;
+    background-color: #3B4B37;
+    color: var(--crema-claro);
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.sidebar-user-details {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin-left: 0.6rem;
+    color: var(--crema-claro);
+    font-size: 0.78rem;
+}
+
+.sidebar-user-name,
+.sidebar-user-key {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sidebar-user-name {
+    font-weight: 600;
+}
+
+.sidebar-user-key {
+    font-size: 0.68rem;
+    opacity: 0.8;
+}
+
+.sidebar-logout {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 0.5rem;
+    color: var(--crema-claro);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.sidebar-logout i {
+    color: var(--dorado);
+}
+
+.sidebar-logout:hover,
+.sidebar-logout:focus-visible {
+    border-color: var(--dorado);
+    background-color: #3B4B37;
     color: var(--dorado);
 }
 
