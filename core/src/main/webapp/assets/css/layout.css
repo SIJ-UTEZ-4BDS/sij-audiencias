@@ -25,6 +25,232 @@ small, .text-thin {
     background-color: var(--fondo-crema);
 }
 
+.page-loader[hidden] {
+    display: none !important;
+}
+
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: grid;
+    place-items: center;
+    overflow: auto;
+    padding: clamp(1rem, 3vw, 2.5rem);
+    background: var(--fondo-crema);
+}
+
+.page-loader-layout {
+    width: min(100%, 1120px);
+    min-height: min(680px, calc(100vh - 3rem));
+    display: grid;
+    grid-template-columns: minmax(190px, 250px) minmax(0, 1fr);
+    overflow: hidden;
+    border: 1px solid #DCE3DC;
+    border-radius: 0.75rem;
+    background-color: var(--blanco-puro);
+    box-shadow: 0 12px 40px rgba(74, 93, 69, 0.12);
+}
+
+.page-loader-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    padding: 1.5rem 1rem;
+    background-color: var(--verde-tierra);
+}
+
+.page-loader-brand,
+.page-loader-line,
+.page-loader-avatar,
+.page-loader-card-title,
+.page-loader-card-line,
+.page-loader-table-line {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.22);
+}
+
+.page-loader-brand,
+.page-loader-line,
+.page-loader-card-title,
+.page-loader-card-line,
+.page-loader-table-line {
+    height: 0.8rem;
+    border-radius: 999px;
+}
+
+.page-loader-brand {
+    width: 100%;
+    height: 5rem;
+    margin-bottom: 0.6rem;
+    border-radius: 0.5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.page-loader-line {
+    width: 82%;
+}
+
+.page-loader-line:nth-child(3n) {
+    width: 65%;
+}
+
+.page-loader-sidebar-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    margin-top: auto;
+}
+
+.page-loader-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    flex: 0 0 auto;
+    border-radius: 50%;
+}
+
+.page-loader-avatar-lines {
+    display: grid;
+    flex: 1;
+    gap: 0.5rem;
+}
+
+.page-loader-avatar-lines .page-loader-line {
+    width: 100%;
+}
+
+.page-loader-main {
+    display: grid;
+    align-content: start;
+    gap: 1.5rem;
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.page-loader-heading {
+    width: 55%;
+    height: 1.5rem;
+    border-radius: 999px;
+    background-color: #E8F3ED;
+}
+
+.page-loader-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.page-loader-card {
+    display: grid;
+    align-content: start;
+    gap: 0.9rem;
+    min-height: 10rem;
+    padding: 1.25rem;
+    border: 1px solid #E8F3ED;
+    border-radius: 0.65rem;
+}
+
+.page-loader-card-title {
+    width: 58%;
+    background-color: #E8F3ED;
+}
+
+.page-loader-card-line {
+    width: 90%;
+    background-color: #F1EFE7;
+}
+
+.page-loader-card-line:last-child {
+    width: 68%;
+}
+
+.page-loader-table {
+    display: grid;
+    gap: 0.9rem;
+    padding: 1.25rem;
+    border: 1px solid #E8F3ED;
+    border-radius: 0.65rem;
+}
+
+.page-loader-table-line {
+    width: 100%;
+    height: 1.1rem;
+    background-color: #F1EFE7;
+}
+
+.page-loader-brand::after,
+.page-loader-line::after,
+.page-loader-avatar::after,
+.page-loader-heading::after,
+.page-loader-card-title::after,
+.page-loader-card-line::after,
+.page-loader-table-line::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    animation: page-loader-shimmer 1.35s infinite;
+}
+
+.page-load-alert {
+    position: fixed;
+    z-index: 2001;
+    top: 1rem;
+    right: 1rem;
+    width: min(28rem, calc(100vw - 2rem));
+    padding: 1rem;
+    border: 1px solid #B42318;
+    border-radius: 0.65rem;
+    background-color: var(--blanco-puro);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18);
+    color: #7A271A;
+}
+
+.page-load-alert p {
+    margin: 0 0 0.75rem;
+}
+
+.page-load-alert button {
+    padding: 0.45rem 0.85rem;
+    border: 0;
+    border-radius: 0.4rem;
+    background-color: var(--verde-tierra);
+    color: var(--blanco-puro);
+    font-weight: 600;
+}
+
+@keyframes page-loader-shimmer {
+    100% { transform: translateX(100%); }
+}
+
+@media (max-width: 640px) {
+    .page-loader-layout {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    .page-loader-sidebar {
+        display: none;
+    }
+
+    .page-loader-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-loader-brand::after,
+    .page-loader-line::after,
+    .page-loader-avatar::after,
+    .page-loader-heading::after,
+    .page-loader-card-title::after,
+    .page-loader-card-line::after,
+    .page-loader-table-line::after {
+        animation: none;
+    }
+}
+
 /* Barra Lateral en Verde Tierra (#4A5D45) con texto Blanco Puro (#FFFFFF) */
 .sidebar-judicial {
     width: var(--sidebar-ancho);
